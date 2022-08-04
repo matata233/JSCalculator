@@ -1,0 +1,69 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    /*not sure about the warning here mean*/
+    font-family: "Times New Roman";
+    font-weight: normal;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(to left, lightgoldenrodyellow, aqua);
+}
+
+.calculator-grid {
+    display: grid;
+    justify-content: center;
+    /* Change align-items: center; to align-content, this makes items line up in a single column */
+    /* align-content make them gather at center */
+    align-content: center;
+    min-height: 100vh;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(100px, auto) repeat(5, 100px);
+}
+
+.calculator-grid > button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    outline: none;
+    /* make it white transparent 0.75 */
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+.calculator-grid > button:hover {
+    background-color: white;
+}
+
+.space-twice {
+    grid-column: span 2;
+}
+
+.output {
+    /* from col#1 to col#-1 (last col) */
+    grid-column: 1/-1;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    /*make them to the right side of the container*/
+    align-items: flex-end;
+    /*space-between out far between each other*/
+    /*space-around make it have space between top and bot too*/
+    justify-content: space-around;
+    /*flex horizontally*/
+    flex-direction: column;
+    padding: 10px;
+    /*Allow to say where we can break the word*/
+    word-wrap: break-word;
+    /*Allow to break all word if too long*/
+    word-break: break-all;
+}
+
+.output.prev-operand {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1.5rem;
+}
+
+.output.curr-operand {
+    color: white;
+    font-size: 2.5rem;
+}
